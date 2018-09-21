@@ -15,11 +15,6 @@ import static org.springframework.web.reactive.function.server.ServerResponse.ok
 public class Application {
 
     @Bean
-    HealthIndicator health() {
-        return () -> Health.status("I <3 Production!").build();
-    }
-
-    @Bean
     RouterFunction<ServerResponse> routes() {
         return route(GET("/api/hello"), request -> ok().syncBody("Hello, Azure!"));
     }
@@ -27,4 +22,5 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
+
 }
